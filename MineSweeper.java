@@ -22,34 +22,65 @@ class MineSweeper{
         initializeMines(this.mineMap);
     }
 
-    //Initialize the borad with '-' 
-    String[][] fill(String[][] array){
+    // Prompt user for number of rows and columns
+    void welcomePage(){
 
-        for (int row = 0; row < this.rowsNum; row++) {
-            for(int column = 0; column < this.columnsNum; column++){
-                array[row][column] = "-";
+    System.out.print("Welcome the mine sweeper game!\n"
+                        + "First of all you should declare the size of the gameboard."
+                        + "Enter the number of rows: ");
+    this.numOfRows = scanner.nextInt();
+    
+    System.out.println("Now, enter the number of columns: ");
+    this.numOfColumns = scanner.nextInt();
+    }
+    
+    // Initialize board as 2D array of integers with all elements set to 0
+    void firstInitializeWithZero(int[][] board){
+        
+        for(int row = 0; row < numOfRows; row++){
+            for(int column = 0; column < numOfColumns; column++){
+                board[row][column] = 0;
             }
         }
-        return array;
     }
 
-    //Randomly places the mines
-    void initializeMines(String[][] mineMap){
+    // Places the mines randomly
+    void mineInitializition(int mineCount){
 
         Random random = new Random();
         int count = 0;
-        
-        while(count < this.minesNum){
-            int row = random.nextInt(this.rowsNum);
-            int column = random.nextInt(this.columnsNum);
+        while (count < mineCount){
             
-            if(mineMap[row][column].equals("-")){
-                mineMap[row][column] = "*";
+            int row = random.nextInt(this.numOfRows);
+            int col = random.nextInt(this.numOfColumns);
+            if (!mineBoard[row][col]) {
+                mineBoard[row][col] = true;
                 count++;
-            }
         }
     }
 
-    //play the game
-    void run(){}
+    // Print the initial statment of board with all elements hidden
+    void printInitialStatment(){
+
+        for(int row = 0; row < this.numOfRows; row++){
+            for(int column = 0; column < this.numOfColumns; column++){
+                System.out.print("- ");
+            }
+            System.out.println();
+        }
+    }
+
+    // Runs the game
+    void run(){
+
+        welcomePage();
+        System.out.println("Here is your board:");
+        printInitialStatment();
+
+        boolean gameEnded = false;
+        while(!gameEnded){
+
+            
+        }
+    }
 }
