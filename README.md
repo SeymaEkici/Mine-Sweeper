@@ -1,4 +1,4 @@
-##Here are the algorithms for each step of the Minesweeper game in Java:
+Here are the algorithms for each step of the Minesweeper game in Java:
 
 1- User Input and Board Initialization
 
