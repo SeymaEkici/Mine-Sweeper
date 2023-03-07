@@ -101,8 +101,8 @@ public class MineSweeper{
             }
 
             // Print the current state of board
-            for(int i = 0; i < numOfRows; i++){
-                for(int j = 0; j < numOfColumns; j++){
+            for(int i = 0; i < this.numOfRows; i++){
+                for(int j = 0; j < this.numOfColumns; j++){
                     if(board[i][j] == 0){
                         System.out.print("- ");
 
@@ -123,7 +123,7 @@ public class MineSweeper{
             for(int j = column - 1; j <= column + 1; j++){
                
                 // Check if it is within the mine board
-                if( i >= 0 && i <= mineBoard.length && j >= 0 && j <= mineBoard.length){
+                if( i >= 0 && i < mineBoard.length && j >= 0 && j < mineBoard[0].length){
                     if(mineBoard[i][j]){
                         count++;
                     }
@@ -140,7 +140,7 @@ public class MineSweeper{
             for(int j = column - 1; j <= column + 1; j++){
 
                 //Check if it is within the board
-                if( i >= 0 && i <= board.length && j >= 0 && j <= board.length){
+                if( i >= 0 && i < board.length && j >= 0 && j < board[0].length){
 
                     board[i][j] = countNeighboringMines(mineBoard, i, j);
                     
